@@ -1,0 +1,177 @@
+* {
+  box-sizing: border-box;
+}
+
+body {
+  background-color: #0a2135;
+  color: #9cafc9;
+  display: flex;
+  flex-direction: column;
+  font-family: "Roboto", sans-serif;
+  height: 100vh;
+  margin: 0;
+}
+
+.header,
+.main {
+  padding: 2em;
+}
+
+.header {
+  text-align: center;
+}
+.header__title {
+  color: #d5e7ff;
+  font-family: "Abel", sans-serif;
+  font-size: 2.5rem;
+}
+.header__title > span {
+  color: #73b0ff;
+}
+.header__intro {
+  font-size: clamp(1rem, 2.5vw, 1.15rem);
+}
+
+.main {
+  display: flex;
+  flex-direction: column;
+  flex-grow: 1;
+}
+.main__search-section {
+  display: flex;
+  justify-content: center;
+}
+.main__search-field {
+  border: 1px solid gray;
+  border-top-left-radius: 5px;
+  border-bottom-left-radius: 5px;
+  padding: 0 15px;
+  width: clamp(250px, 50vw, 650px);
+  height: 50px;
+  font-size: 1.15rem;
+  outline: none;
+}
+.main__search-field::-moz-placeholder {
+  opacity: 0.5;
+}
+.main__search-field::placeholder {
+  opacity: 0.5;
+}
+.main__search-button {
+  background-color: #d5e7ff;
+  border: 1px solid gray;
+  border-left-width: 0;
+  border-top-right-radius: 5px;
+  border-bottom-right-radius: 5px;
+  font-size: 1.15rem;
+  height: 50px;
+  width: 50px;
+  cursor: pointer;
+  transition: all ease-in 0.1s;
+}
+.main__search-button:hover {
+  background-color: #bbcfeb;
+}
+.main__search-button:active {
+  background-color: #73b0ff;
+  border-color: #73b0ff;
+}
+.main__result-section {
+  align-items: flex-start;
+  align-content: flex-start;
+  display: flex;
+  flex-grow: 1;
+  flex-wrap: wrap;
+  gap: min(3vw, 1rem);
+  padding: 50px;
+}
+
+.footer {
+  font-size: 0.75rem;
+  margin-top: auto;
+  text-align: center;
+  padding: 0 1em 1em 1em;
+}
+
+.game-card {
+  background-color: #061827;
+  border-radius: 5px;
+  display: grid;
+  font-size: 1.25rem;
+  width: -moz-min-content;
+  width: min-content;
+  transition: margin 0.2s ease-in-out;
+  grid-template: "thumbnail title" 50px "thumbnail price" 50px/180px min(50vw, 350px);
+}
+.game-card:hover {
+  outline: 2px solid #133f63;
+  box-shadow: 0 5px 5px 0 rgba(0, 0, 0, 0.3);
+  margin-top: -5px;
+}
+.game-card__thumbnail {
+  grid-area: thumbnail;
+  border-top-left-radius: 5px;
+  border-bottom-left-radius: 5px;
+  overflow: hidden;
+}
+.game-card__thumbnail img {
+  height: 100px;
+  width: 180px;
+  -o-object-fit: cover;
+     object-fit: cover;
+  -o-object-position: top;
+     object-position: top;
+}
+.game-card__title {
+  display: flex;
+  grid-area: title;
+  padding: 1rem 1rem 0.25rem 1rem;
+  align-items: center;
+}
+.game-card__link {
+  color: #9cafc9;
+  cursor: pointer;
+  overflow-wrap: break-word;
+  text-decoration: none;
+}
+.game-card__price {
+  grid-area: price;
+  padding: 0.25rem 1rem 1rem 1rem;
+}
+.game-card__price::before {
+  content: "$";
+}
+
+.loader {
+  position: relative;
+  margin: auto;
+  margin-top: 5rem;
+}
+.loader, .loader::before, .loader::after {
+  background-color: transparent;
+  border-radius: 50%;
+  box-shadow: 0 1.5em 0 0;
+  height: 1.5em;
+  width: 1.5em;
+  animation: resize 1.5s ease-in-out infinite both;
+}
+.loader::before, .loader::after {
+  content: "";
+  position: absolute;
+}
+.loader::before {
+  margin-left: -2.25em;
+  animation-delay: -0.16s;
+}
+.loader::after {
+  margin-left: 2.25em;
+  animation-delay: 0.16s;
+}
+@keyframes resize {
+  0%, 80%, 100% {
+    box-shadow: 0 1.5em 0 -0.75em;
+  }
+  40% {
+    box-shadow: 0 1.5em 0 0;
+  }
+}/*# sourceMappingURL=style.css.map */
